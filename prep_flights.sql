@@ -123,5 +123,5 @@ from passangers
 where next_created_at:: date = created_at:: date and mod (row_number, 2) = 1
 order by next_created_at-created_at ASC 
 ) n
-where possible_error is null --and bsk in ('3953395831', '36116942942923012')
+where possible_error is null
 order by time_dep
