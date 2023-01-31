@@ -107,7 +107,7 @@ CREATE INDEX IF NOT EXISTS ind_routes
     TABLESPACE pg_default;
 	
 	
--- Table: project1.passangers
+-- Table: project1.query_passangers
 
 DROP TABLE IF EXISTS project1.query_passangers;
 
@@ -118,6 +118,7 @@ CREATE TABLE IF NOT EXISTS project1.query_passangers
 	--naryad int,
 	car text,
 	--row_flight int,
+    stop text,
 	time_dep timestamp without time zone,
 	created_at timestamp without time zone,
 	time_back timestamp without time zone,
@@ -125,6 +126,7 @@ CREATE TABLE IF NOT EXISTS project1.query_passangers
 	--next_naryad int,
 	next_car text,
 	--next_row_flight int,
+    next_stop text,
 	next_time_dep timestamp without time zone,
 	next_created_at timestamp without time zone,
 	next_time_back timestamp without time zone,
@@ -146,12 +148,14 @@ CREATE INDEX ind_query_passangers
 	--naryad ASC NULLS LAST,
 	car ASC NULLS LAST,
 	--row_flight ASC NULLS LAST,
+    stop ASC NULLS LAST,
 	time_dep ASC NULLS LAST,
 	created_at ASC NULLS LAST,
 	time_back ASC NULLS LAST,
 	next_route ASC NULLS LAST,
 	--next_naryad ASC NULLS LAST,
 	next_car ASC NULLS LAST,
+    next_stop ASC NULLS LAST,
 	--next_row_flight ASC NULLS LAST,
 	next_time_dep ASC NULLS LAST,
 	next_created_at ASC NULLS LAST,
