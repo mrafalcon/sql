@@ -136,6 +136,8 @@ select *, next_created_at-created_at as duration,
 		when created_at::time > '01:00:00' and created_at::time < '04:00:00' then 5 -- транзакция до начала движения по маршрутам
 		when car = next_car and (route = next_route and id_naryad = passangers.next_id_naryad and (flight = next_flight or row_flight = next_row_flight)) then 4 -- повторное прикладывание на 1 рейсе
         when next_created_at > created_at::date + interval '1' day + (1 * interval '1 hour') then 3 --поездки в разные дни
+        when created_at::time < '01:00:00' and next_created_at::time > '01:00:00' then 3 --поездки в разные дни 
+        when next_created_at-created_at > '21:00:00' then 3 --поездки в разные дни 
     --when 1=1 then null
 	end as possible_error
 from passangers
