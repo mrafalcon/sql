@@ -112,7 +112,7 @@ select *, next_created_at-created_at as duration,
 	case 
 		when (flight is null or next_flight is null) then 6 -- транзакции на парковых рейсах
 		when created_at::time < '04:00:00' then 5 -- транзакция до начала движения по маршрутам
-		when (route = next_route and id_naryad = passangers.next_id_naryad and (flight = next_flight or row_flight = next_row_flight)) then 4 -- повторное прикладывание на 1 рейсе
+		when car = next_car and (route = next_route and id_naryad = passangers.next_id_naryad and (flight = next_flight or row_flight = next_row_flight)) then 4 -- повторное прикладывание на 1 рейсе
 		--when car = next_car and next_created_at-created_at < '02:00:00' then 4 -- повторное прикладывание на 1 рейсе
 		--when (next_created_at-created_at > '16:00:00' ) then 3 -- промежуток более 16 часов (при нормальном 8часовом сне для человека)	
 		--when (next_created_at-created_at < '00:01:30' and car = next_car) then 2 --повторное прикладывание в пределах 1 перегона?
