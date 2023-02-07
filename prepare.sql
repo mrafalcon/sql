@@ -168,3 +168,16 @@ CREATE INDEX ind_query_passangers
 	next_time_back ASC NULLS LAST,
 	duration ASC NULLS LAST )
     TABLESPACE pg_default;
+    
+    
+-- Table: project1.stops    
+    DROP TABLE IF EXISTS project1.stops;
+
+CREATE TABLE IF NOT EXISTS project1.stops
+(
+    direction text,
+	stop text,
+    route text,
+    pos_start int,
+	pos_end int
+)
