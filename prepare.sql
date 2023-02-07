@@ -88,7 +88,9 @@ CREATE TABLE IF NOT EXISTS project1.routes
 (
     id_route text ,
     stop_1 text ,
-    stop_2 text
+    stop_2 text, 
+    length_1_2 int,
+    length_2_1 int
 )
 
 TABLESPACE pg_default;
